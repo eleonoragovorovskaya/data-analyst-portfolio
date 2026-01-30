@@ -36,8 +36,8 @@ FROM real_estate.advertisement;
 
 ``` sql
 SELECT
-COUNT(*) FILTER (WHERE c.city = 'Санкт-Петербург')
-/ COUNT(*)::numeric * 100 AS spb_percent
+	COUNT(*) FILTER (WHERE c.city = 'Санкт-Петербург')
+	/ COUNT(*)::numeric * 100 AS spb_percent
 FROM real_estate.flats f
 JOIN real_estate.city c USING (city_id);
 ```
@@ -104,7 +104,7 @@ categorization AS (
 	JOIN real_estate.flats USING(city_id)
 	JOIN real_estate.advertisement USING(id)
 	JOIN real_estate.TYPE USING(type_id)
-		WHERE TYPE = 'город' AND id IN (SELECT * FROM filtered_id) AND EXTRACT(YEAR FROM first_day_exposition) BETWEEN 2015 AND 2018
+	WHERE type = 'город' AND id IN (SELECT * FROM filtered_id) AND EXTRACT(YEAR FROM first_day_exposition) BETWEEN 2015 AND 2018
 )
 
 SELECT
@@ -165,7 +165,7 @@ publication_stats AS (
 		COUNT(id) AS ads_count,
 		ROUND(AVG(total_area)::numeric) AS avg_total_area,
 		ROUND(AVG(last_price / total_area)::numeric) AS avg_price_per_m2,
-'publication' AS period_type
+		'publication' AS period_type
 	FROM days_stats
 	JOIN real_estate.flats USING (id)
 	JOIN real_estate.type USING(type_id)
@@ -180,7 +180,7 @@ removal_stats AS (
 		COUNT(id) AS ads_count,
 		ROUND(AVG(total_area)::numeric) AS avg_total_area,
 		ROUND(AVG(last_price / total_area)::numeric) AS avg_price_per_m2,
-'removal' AS period_type
+		'removal' AS period_type
 	FROM days_stats
 	JOIN real_estate.flats USING (id)
 	JOIN real_estate.type USING(type_id)
