@@ -14,3 +14,5 @@
 
 ## [Исследование рынка общественного питания Москвы](https://github.com/eleonoragovorovskaya/data-analyst-portfolio/tree/main/Moscow%20catering%20market)
 **Инструменты:** Python, Pandas, NumPy, Matplotlib, Seaborn
+## [Пожертвования благотворительному фонду](https://github.com/eleonoragovorovskaya/data-analyst-portfolio/tree/main/Donations%20research)
+**Инструменты:** Excel, PowerQuery, PowerBI
